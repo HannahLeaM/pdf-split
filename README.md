@@ -1,12 +1,10 @@
-#                                                                                               #
-#           pdf-split                                                                           #
-#        
-#         
-#       
-#     State:    early ALPHA                                                                     #
-#     Language: BASH                                                                            #
-#     Author:   Hannah Lea Moeckel                                                              #
-#                                                                                               #
+                                                                                               
+   **pdf-split**                                                                                 
+       
+     State:    early ALPHA                                                                     
+     Language: BASH                                                                            
+     Author:   Hannah Lea Moeckel                                                              
+                                                                                               
 
 
 
