@@ -1,9 +1,9 @@
                                                                                                
    **pdf-split**                                                                                 
        
-     State:    early ALPHA                                                                     
-     Language: BASH                                                                            
-     Author:   Hannah Lea Moeckel                                                              
+     State:       early ALPHA                                                                     
+     Language:    BASH                                                                            
+     Author:      Hannah Lea Moeckel                                                              
                                                                                                
 
 
