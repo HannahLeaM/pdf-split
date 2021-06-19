@@ -13,7 +13,7 @@ _A simple but very purpose-build bash script for splitting a big PDF at a reapea
 
   Usage:
   
-    pdf-split -I <InputFile> -O <OutputFile>
+    pdf-split -I <InputFile> -O <OutputFile> -r
     
   
   Notes and advice:
@@ -24,6 +24,7 @@ _A simple but very purpose-build bash script for splitting a big PDF at a reapea
       available ocr ist performed automatically.
     - As the Output you also define a file for reference for the filenames used to output 
       the final split documents.
+    - r triggers final text recognition on output file for further use.
       
   Known Bugs and issuse:
   
