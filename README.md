@@ -32,3 +32,10 @@ _A simple but very purpose-build bash script for splitting a big PDF at a reapea
     - Output file structuring system still work in progress.
     - No installer script.
     - Some unfinished functions in current version
+    
+  Installation:
+   
+    - Copy the file into your home directory or any other folder that you have full access 
+      to.
+    - Make your file executable by using chmod +x <your/pdf.split.sh>
+    - Create a symlink to the users local binaries folder unsing ln -s <your/pdf-split.sh> /usr/local/bin/pdf-split
