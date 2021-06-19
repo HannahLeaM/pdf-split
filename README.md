@@ -11,10 +11,15 @@
 
 _A simple but very purpose-build bash script for splitting a big PDF at a reapeating pattern_
 
+<br />
+
   Usage:
   
     pdf-split -I <InputFile> -O <OutputFile> -r
     
+    
+ <br />
+ <br />
   
   _Notes and advice:_
   
