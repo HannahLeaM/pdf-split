@@ -40,7 +40,6 @@ _A simple but very purpose-build bash script for splitting a big PDF at a reapea
     
   _Installation:_
    
-    - Copy the file into your home directory or any other folder that you have full access 
-      to.
+    - Copy the file into your home directory or any other folder that you have full access to.
     - Make your file executable by using chmod +x <your/pdf.split.sh>
     - Create a symlink to the users local binaries folder unsing ln -s <your/pdf-split.sh> /usr/local/bin/pdf-split
