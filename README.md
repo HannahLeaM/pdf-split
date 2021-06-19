@@ -30,3 +30,4 @@ _A simple but very purpose-build bash script for splitting a big PDF at a reapea
     - Existance checks for files and directories used not yet implemented.
     - Output file structuring system still work in progress.
     - No installer script.
+    - Some unfinished functions in current version
