@@ -29,15 +29,33 @@ merger () {
 	local var EndPage=$2
 	local var Run=$3
 
-	TrueOutFile=$(echo $OutputFile | sed "s/.pdf/-$Run/g")
-	TrueOutFile=$(echo "$TrueOutFile.pdf")
+	TrunkOutFile=$(echo $OutputFile | sed "s/.pdf/-$Run/g")
+	TrueOutFile=$(echo "$TrunkOutFile.pdf")
 
-	#CurrentLocation=$(GetLocation $TempDir/${StartingFiles[$i]})
-  #CurrentAccount=$(GetAccount $TempDir/${StartingFiles[$i]})
-  #SortedOutFile=$(CreateFilePath $CurrentLocation $CurrentAccount)
+	if [ $SORTarg = "true" ]
+	then
+		CurrentLocation=$(GetLocation $TempDir/${StartingFiles[$i]})
+	        CurrentAccount=$(GetAccount $TempDir/${StartingFiles[$i]})
+	        SortedOutFile=$(CreateFilePath $CurrentLocation $CurrentAccount)
+
+		echo "Merge from $StartingPage to $EndPage into $SortedOutFile" && $MyPDFTK $InputFile cat $StartingPage-$EndPage output "$SortedOutFile" > /dev/null
+	fi
 
 	echo "Merge from $StartingPage to $EndPage into $TrueOutFile" && $MyPDFTK $InputFile cat $StartingPage-$EndPage output $TrueOutFile > /dev/null
-	#echo "Merge from $StartingPage to $EndPage into $SortedOutFile" && $MyPDFTK $InputFile cat $StartingPage-$EndPage output "$SortedOutFile" > /dev/null
+
+	if [ $OCRarg = "true" ]
+	then
+		echo "Performing final OCR on $TrueOutFile [might take some time]..."
+		OCR $TrueOutFile
+		mv $OCROutFile $TrueOutFile
+
+		if [ $SORTarg = "true" ]
+		then
+			echo "Performing final OCR on $SortedOutFile [might take some time]..."
+                	OCR $SortedOutFile
+                	mv $OCROutFile $SortedOutFile
+		fi
+	fi
 }
 
 GetLocation () {
@@ -104,7 +122,7 @@ OCR () {
 }
 
 	#Read FLAGS
-while getopts "I:O:" option
+while getopts "I:O:rs" option
 do
 	case $option in
 		I)
@@ -124,8 +142,29 @@ do
 				echo "No Output defined!" && exit 1
 			fi
 			;;
+		r)
+			OCRarg="true"
+			;;
+
+		s)
+			SORTarg="true"
+			;;
+
+		*)
+			echo "At least one flag you entered is not supported!" && exit 1
+			;;
 	esac
 done
+
+if [ -z $SORTarg ]
+then
+	SORTarg="false"
+fi
+
+if [ -z $OCRarg ]
+then
+	OCRarg="false"
+fi
 
 	#UserInput
 read -p "Enter pattern to grep: " GrepPattern
