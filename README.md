@@ -16,7 +16,7 @@ _A simple but very purpose-build bash script for splitting a big PDF at a reapea
     pdf-split -I <InputFile> -O <OutputFile> -r
     
   
-  Notes and advice:
+  _Notes and advice:_
   
     - It is really important to install all the dependecies first and make sure the system
       access them via the PATH variable.
@@ -26,14 +26,14 @@ _A simple but very purpose-build bash script for splitting a big PDF at a reapea
       the final split documents.
     - r triggers final text recognition on output file for further use.
       
-  Known Bugs and issuse:
+  _Known Bugs and issuse:_
   
     - Existance checks for files and directories used not yet implemented.
     - Output file structuring system still work in progress.
     - No installer script.
     - Some unfinished functions in current version
     
-  Installation:
+  _Installation:_
    
     - Copy the file into your home directory or any other folder that you have full access 
       to.
